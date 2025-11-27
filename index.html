@@ -340,7 +340,7 @@
       </div>
     </header>
 
-      <main>
+    <main>
       <!-- Hero -->
       <section class="hero">
         <div class="hero-inner">
@@ -359,13 +359,10 @@
               <a class="btn btn-primary" href="tel:+17142963763">
                 Call now: (714) 296-3763
               </a>
-              <a class="btn btn-outline" href="#contact">
-                Request a call back
-              </a>
             </div>
 
             <p class="hero-note">
-              Most repairs take under 30 minutes and can help stop cracks from
+              Most repairs take under 30 minutes and help stop cracks from
               spreading.
             </p>
           </div>
@@ -375,10 +372,10 @@
             <ul>
               <li>Prevents small chips from turning into full cracks</li>
               <li>Saves money compared to full glass replacement</li>
-              <li>Improves safety and visibility while driving</li>
+              <li>Improves safety and visibility</li>
             </ul>
             <p class="card-phone">
-              Questions? Call or text
+              Call or text:
               <a href="tel:+17142963763">(714) 296-3763</a>
             </p>
           </aside>
@@ -392,24 +389,15 @@
           <div class="grid">
             <div class="card">
               <h3>Windshield Chip Repair</h3>
-              <p>
-                We specialize in small chips and “bullseye” style damage. A quick
-                repair can help restore clarity and prevent spreading.
-              </p>
+              <p>We fix small chips and “bullseye” damage fast and clean.</p>
             </div>
             <div class="card">
               <h3>Simple Pricing</h3>
-              <p>
-                No hidden fees, no surprise add-ons. It’s just
-                <strong>$60 per chip</strong>.
-              </p>
+              <p>No hidden fees. It's always <strong>$60 per chip</strong>.</p>
             </div>
             <div class="card">
-              <h3>Friendly, Local Service</h3>
-              <p>
-                Based in Orange County, we focus on being easy to reach and easy
-                to work with. Call or text to schedule a repair.
-              </p>
+              <h3>Local, Mobile Service</h3>
+              <p>Orange County based — fast response, easy scheduling.</p>
             </div>
           </div>
         </div>
@@ -426,26 +414,20 @@
                 <strong>Phone / Text:</strong>
                 <a href="tel:+17142963763">(714) 296-3763</a>
               </p>
-              <p>
-                Send a quick photo of your chip and we’ll let you know if it’s a
-                good candidate for repair.
-              </p>
-              <p>
-                <strong>Hours:</strong> Call or text any time; if we miss you,
-                we’ll return your message as soon as possible.
-              </p>
+              <p>Send a photo of your chip and we'll tell you if it's repairable.</p>
             </div>
 
-            <form>
+            <form action="mailto:zmccarty001@gmail.com" method="POST" enctype="text/plain">
               <div>
                 <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Your name" />
+                <input id="name" name="Name" type="text" placeholder="Your name" />
               </div>
 
               <div>
                 <label for="phone">Phone number</label>
                 <input
                   id="phone"
+                  name="Phone"
                   type="tel"
                   placeholder="Your phone (e.g. 714-296-3763)"
                 />
@@ -455,16 +437,17 @@
                 <label for="message">Message</label>
                 <textarea
                   id="message"
-                  placeholder="Tell us about your chip (location, size, vehicle)..."
+                  name="Message"
+                  placeholder="Tell us about your chip..."
                 ></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary">
-                Send (demo form)
+                Send Email
               </button>
+
               <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 0.3rem;">
-                This form is static. Connect it to your email or backend to
-                receive submissions.
+                This sends an email directly from the visitor’s device.
               </p>
             </form>
           </div>
@@ -478,8 +461,8 @@
   </div>
 
   <script>
-    // Auto-update year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
