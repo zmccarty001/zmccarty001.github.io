@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Coglassrpars – Chip Repair $60</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #111827;
+      color: #f9fafb;
+      padding: 1rem 1.5rem;
+    }
+
+    .nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: #60a5fa;
+    }
+
+    .phone-top {
+      font-size: 0.95rem;
+    }
+
+    .phone-top a {
+      color: #f9fafb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #f9fafb;
+      padding: 3.5rem 1.5rem 3rem;
+    }
+
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3vw + 1rem, 3rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p.tagline {
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+      color: #e5e7eb;
+    }
+
+    .price-line {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-line span {
+      color: #60a5fa;
+      font-size: 1.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero-actions {
+        justify-content: center;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.98rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.1s ease,
+        background 0.1s ease, color 0.1s ease;
+    }
+
+    .btn-primary {
+      background: #60a5fa;
+      color: #0b1120;
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 22px rgba(15, 23, 42, 0.5);
+      background: #3b82f6;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: #4b5563;
+    }
+
+    .btn-outline:hover {
+      background: #111827;
+      border-color: #9ca3af;
+    }
+
+    .hero-note {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .hero-card {
+      background: #f9fafb;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      color: #111827;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.45);
+    }
+
+    .hero-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card li {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-card li::before {
+      content: "✔";
+      margin-right: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .hero-card .card-phone {
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+
+    .hero-card .card-phone a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+
+    .section {
+      padding: 2.5rem 1.5rem;
+      background: #f5f5f5;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 0.9rem;
+      padding: 1.25rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .contact-section {
+      background: #111827;
+      color: #e5e7eb;
+    }
+
+    .contact-section h2 {
+      color: #f9fafb;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.5fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-details p {
+      margin-bottom: 0.6rem;
+      font-size: 0.98rem;
+    }
+
+    .contact-details strong {
+      color: #f9fafb;
+    }
+
+    .contact-details a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    form {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      margin-bottom: 0.15rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid #4b5563;
+      background: #030712;
+      color: #f9fafb;
+      font-size: 0.95rem;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #6b7280;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem 1.5rem;
+      background: #030712;
+      color: #6b7280;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="nav">
+        <div class="logo"><span>co</span>glassrpars</div>
+        <div class="phone-top">
+          Call or text:
+          <a href="tel:+17142963763">(714) 296-3763</a>
+        </div>
+      </div>
+    </header>
+
+      <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <h1>Fast, Affordable Glass Chip Repair</h1>
+            <p class="tagline">
+              Mobile chip repair for your windshield or auto glass – quick, clean,
+              and reliable.
+            </p>
+
+            <p class="price-line">
+              Flat rate: <span>$60</span> per chip
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="tel:+17142963763">
+                Call now: (714) 296-3763
+              </a>
+              <a class="btn btn-outline" href="#contact">
+                Request a call back
+              </a>
+            </div>
+
+            <p class="hero-note">
+              Most repairs take under 30 minutes and can help stop cracks from
+              spreading.
+            </p>
+          </div>
+
+          <aside class="hero-card">
+            <h2>Why fix chips early?</h2>
+            <ul>
+              <li>Prevents small chips from turning into full cracks</li>
+              <li>Saves money compared to full glass replacement</li>
+              <li>Improves safety and visibility while driving</li>
+            </ul>
+            <p class="card-phone">
+              Questions? Call or text
+              <a href="tel:+17142963763">(714) 296-3763</a>
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- What we do -->
+      <section class="section">
+        <div class="section-inner">
+          <h2>What We Offer</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Windshield Chip Repair</h3>
+              <p>
+                We specialize in small chips and “bullseye” style damage. A quick
+                repair can help restore clarity and prevent spreading.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Simple Pricing</h3>
+              <p>
+                No hidden fees, no surprise add-ons. It’s just
+                <strong>$60 per chip</strong>.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Friendly, Local Service</h3>
+              <p>
+                Based in Orange County, we focus on being easy to reach and easy
+                to work with. Call or text to schedule a repair.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section contact-section">
+        <div class="section-inner">
+          <h2>Get a Chip Repaired</h2>
+
+          <div class="contact-layout">
+            <div class="contact-details">
+              <p>
+                <strong>Phone / Text:</strong>
+                <a href="tel:+17142963763">(714) 296-3763</a>
+              </p>
+              <p>
+                Send a quick photo of your chip and we’ll let you know if it’s a
+                good candidate for repair.
+              </p>
+              <p>
+                <strong>Hours:</strong> Call or text any time; if we miss you,
+                we’ll return your message as soon as possible.
+              </p>
+            </div>
+
+            <form>
+              <div>
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" />
+              </div>
+
+              <div>
+                <label for="phone">Phone number</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  placeholder="Your phone (e.g. 714-296-3763)"
+                />
+              </div>
+
+              <div>
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  placeholder="Tell us about your chip (location, size, vehicle)..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Send (demo form)
+              </button>
+              <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 0.3rem;">
+                This form is static. Connect it to your email or backend to
+                receive submissions.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; <span id="year"></span> coglassrpars. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Auto-update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
